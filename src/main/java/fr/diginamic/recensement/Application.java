@@ -3,6 +3,12 @@ package fr.diginamic.recensement;
 import java.util.Scanner;
 
 import fr.diginamic.recensement.entites.Recensement;
+import fr.diginamic.recensement.exceptions.MaxNegatifException;
+import fr.diginamic.recensement.exceptions.MaxStringException;
+import fr.diginamic.recensement.exceptions.MinNegatifException;
+import fr.diginamic.recensement.exceptions.MinStringException;
+import fr.diginamic.recensement.exceptions.MinSuperiorMaxException;
+import fr.diginamic.recensement.exceptions.NoDepartementFoundException;
 import fr.diginamic.recensement.services.RechercheDepartementsPlusPeuplees;
 import fr.diginamic.recensement.services.RecherchePopulationBorneService;
 import fr.diginamic.recensement.services.RecherchePopulationDepartementService;
@@ -66,7 +72,26 @@ public class Application {
 				break;
 			case 4:
 				RecherchePopulationBorneService recherchePopBorne = new RecherchePopulationBorneService();
-				recherchePopBorne.traiter(recensement, scanner);
+				try {
+					recherchePopBorne.traiter(recensement, scanner);
+				} catch (MinStringException e) {
+					// TODO Auto-generated catch block
+					System.err.println(e.getMessage());
+				} catch (MaxStringException e) {
+					System.err.println(e.getMessage());
+				} catch (MinNegatifException e) {
+					// TODO Auto-generated catch block
+					System.err.println(e.getMessage());
+				} catch (MaxNegatifException e) {
+					// TODO Auto-generated catch block
+					System.err.println(e.getMessage());
+				} catch (MinSuperiorMaxException e) {
+					// TODO Auto-generated catch block
+					System.err.println(e.getMessage());
+				} catch (NoDepartementFoundException e) {
+					// TODO Auto-generated catch block
+					System.err.println(e.getMessage());
+				}
 				break;
 			case 5:
 				RechercheVillesPlusPeupleesDepartement rechercheVillesPlusPeupleesDepartement = new RechercheVillesPlusPeupleesDepartement();
