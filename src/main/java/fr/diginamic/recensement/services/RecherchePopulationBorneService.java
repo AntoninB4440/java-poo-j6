@@ -13,6 +13,7 @@ import fr.diginamic.recensement.exceptions.MinNegatifException;
 import fr.diginamic.recensement.exceptions.MinStringException;
 import fr.diginamic.recensement.exceptions.MinSuperiorMaxException;
 import fr.diginamic.recensement.exceptions.NoDepartementFoundException;
+import fr.diginamic.recensement.exceptions.RecensementExceptions;
 
 /**
  * Recherche et affichage de toutes les villes d'un département dont la
@@ -25,8 +26,7 @@ import fr.diginamic.recensement.exceptions.NoDepartementFoundException;
 public class RecherchePopulationBorneService extends MenuService {
 
 	@Override
-	public void traiter(Recensement rec, Scanner scanner) throws MinStringException, MaxStringException,
-			MinNegatifException, MaxNegatifException, MinSuperiorMaxException, NoDepartementFoundException {
+	public void traiter(Recensement rec, Scanner scanner) throws RecensementExceptions {
 
 		System.out.println("Quel est le code du département recherché ? ");
 		String choix = scanner.nextLine();

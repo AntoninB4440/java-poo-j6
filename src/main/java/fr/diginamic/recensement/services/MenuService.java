@@ -9,6 +9,7 @@ import fr.diginamic.recensement.exceptions.MinNegatifException;
 import fr.diginamic.recensement.exceptions.MinStringException;
 import fr.diginamic.recensement.exceptions.MinSuperiorMaxException;
 import fr.diginamic.recensement.exceptions.NoDepartementFoundException;
+import fr.diginamic.recensement.exceptions.RecensementExceptions;
 
 /**
  * Classe représentant un service
@@ -30,8 +31,7 @@ public abstract class MenuService {
 	 * @throws MaxNegatifException
 	 * @throws MinSuperiorMaxException
 	 * @throws NoDepartementFoundException
+	 * @throws RecensementExceptions
 	 */
-	public abstract void traiter(Recensement recensement, Scanner scanner)
-			throws MinStringException, MaxStringException, MinNegatifException, MaxNegatifException,
-			MinSuperiorMaxException, NoDepartementFoundException;
+	public abstract void traiter(Recensement recensement, Scanner scanner) throws RecensementExceptions;
 }
